@@ -1,7 +1,49 @@
 <% include partials/header %>
 
-<h1>Landing Page!</h1>
+<div class="container">
+    <h1 class="text-center">Pick A Place</h1>
+  </div>
+  <div class="container">
+    <div class="loading">
+      <div class="spinner"></div>
+    </div>
+    <!--Wordcloud-->
+    <div id="canvas-container" class="canvaspage">
+      <h2 id="artistname" class="text-center"></h2>
+      <canvas id="canvas" class="canvas" width="2000" height="2000"></canvas>
+    </div>
 
-<p>Welcome to Pick A Place!</p>
+    <!--Search Page-->
+    <div class="searchpage text-center">
+      <button class="btn btn-default" id="search">Locate Me!</button>
+    </div>
 
+    <div class="searchpage text-center">
+      <button class="btn btn-default" id="demo">Location</button>
+      <h2 id="loc" class="text-center"></h2>
+
+    </div>
+
+    <!--Word Page-->
+    <div class="wordpage text-center">
+      <button class="btn btn-default backToCanvas">back to canvas</button>
+      <h2 id="word" class="text-center"></h2>
+      <div class="songlist">
+      </div>
+    </div>
+
+    <!--Song Page-->
+    <div class="songpage text-center">
+      <button class="btn btn-default" id="backToWordpage">back to word</button>
+      <button class="btn btn-default backToCanvas" >back to canvas</button>
+      <h2 id="songname" class="text-center"></h2>
+      <div id="songlyrics">
+      </div>
+    </div>
+
+    <hr>
+    <footer>
+      <p>&copy; 2017 JonLuca De Caro - Quinn Ngo</p>
+    </footer>
+  </div>
 <% include partials/footer%>
