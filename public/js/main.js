@@ -7,7 +7,7 @@ $(document).ready(function() {
       type: 'json',
       data: {
         latitude: position.coords.latitude,
-        songs: position.coords.longitude,
+        longitude: position.coords.longitude,
       },
       success: function(data, code, jqXHR) {
         console.log('success');
