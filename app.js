@@ -34,13 +34,15 @@ app.post("/search", function(req, res) {
     longitude: longitude
   };
 
-  yelp.search(searchObject).then(function(data) {
-    console.log(data);
+  res.send({
+    redirect: '/results'
   });
-  res.render("results.ejs");
-  res.end('Completed Succesfully!');
+  res.end();
 });
 
+app.get("/results", function(req, res) {
+  res.render("results.ejs");
+});
 
 app.listen(3000, function() {
   console.log("Listening on port 3000!!!");

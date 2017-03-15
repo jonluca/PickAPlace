@@ -10,9 +10,10 @@ $(document).ready(function() {
         longitude: position.coords.longitude,
       },
       success: function(data, code, jqXHR) {
-        console.log('success');
         $('.loading').css('display', 'none');
-
+        if (typeof data.redirect == 'string') {
+          window.location = data.redirect
+        }
       }
     });
   }
@@ -26,11 +27,9 @@ $(document).ready(function() {
     $('.loading').css('display', 'block');
 
     if (navigator.geolocation) {
-      console.log('supported');
       navigator.geolocation.getCurrentPosition(sendLoc);
     } else {
       button.innerHTML = "Geolocation is not supported by this browser.";
-      console.log('not supported');
     }
 
   });
