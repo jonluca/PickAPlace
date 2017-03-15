@@ -18,20 +18,6 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
-
-// yelp.search({
-//   term: 'food',
-//   location: '90007'
-// })
-//   .then(function(data) {
-//     console.log(data);
-//   })
-//   .catch(function(err) {
-//     console.log(err);
-//   });
-
-
 app.get("/", function(req, res) {
   res.render("landing.ejs");
 });
