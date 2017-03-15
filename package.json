@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jonluca/PickAPlace#readme",
   "dependencies": {
+    "express": "^4.15.2",
     "yelp-api-v3": "^1.5.0"
   }
 }

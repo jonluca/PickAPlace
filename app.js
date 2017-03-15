@@ -20,6 +20,11 @@ yelp.search({ term: 'food', location: '90007'})
 });
 
 
+app.get("/", function(req, res){
+	res.render("views/landing");
+})
+
+
 app.listen(3000, function(){
 	console.log("Listening on port 3000!!!");
 })
