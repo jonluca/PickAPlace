@@ -40,17 +40,33 @@ app.post("/search", function(req, res) {
   // get data from form and use it to search
   var latitude = req.body.latitude;
   var longitude = req.body.longitude;
+
+  console.log(req.body);
   // to be renamed
   var term = req.body.search;
-  var searchObject = {
-    term: term,
-    latitude: latitude,
-    longitude: longitude
-  };
 
-  yelp.search(searchObject).then(function(data) {
-    console.log(data);
+  var searchObject = {
+    term: 'restaurant',
+    latitude: latitude,
+    longitude: longitude,
+    radius: 16000,
+    limit: 1
+  }
+
+  searchObject.sort_by = 'rating';
+
+  var results = [];
+
+  yelp.search(searchObject)
+  .then(function(data){
+    // console.log(JSON.parse(data));
+    results.push(JSON.parse(data));
+  })
+  .catch(function (err){
+    console.error(err);
   });
+
+  console.log(results[0]);
   res.render("results.ejs");
   res.end('Completed Succesfully!');
 });
