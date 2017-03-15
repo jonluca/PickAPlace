@@ -51,7 +51,8 @@ app.post("/search", function(req, res) {
   yelp.search(searchObject).then(function(data) {
     console.log(data);
   });
-  res.end('yes');
+  res.render("results.ejs");
+  res.end('Completed Succesfully!');
 });
 
 
