@@ -36,19 +36,22 @@ app.get("/", function(req, res) {
   res.render("landing.ejs");
 });
 
-app.post("/search", function(req, res){
-	// get data from form and use it to search
-	var latitude = req.body.latitude;
-	var longitude = req.body.longitude;
-	// to be renamed
-	var term = req.body.search; 
-	var searchObject = {
-		term: term,
-		latitude: latitude,
-		longitude: longitude
-	};
+app.post("/search", function(req, res) {
+  // get data from form and use it to search
+  var latitude = req.body.latitude;
+  var longitude = req.body.longitude;
+  // to be renamed
+  var term = req.body.search;
+  var searchObject = {
+    term: term,
+    latitude: latitude,
+    longitude: longitude
+  };
 
-	yelp.search(searchObject).then(function(data){console.log(data);});
+  yelp.search(searchObject).then(function(data) {
+    console.log(data);
+  });
+  res.end('yes');
 });
 
 
