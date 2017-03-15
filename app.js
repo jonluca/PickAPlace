@@ -40,22 +40,36 @@ app.post("/search", function(req, res) {
   }
 
   searchObject.sort_by = 'rating';
-  var results = [];
+  var results = {};
+
+
+
 
   yelp.search(searchObject)
   .then(function(data){
     // console.log(JSON.parse(data));
-    results.push(JSON.parse(data));
+
+    results.rating = JSON.parse(data);
+    searchObject.sort_by = 'distance';
+
+    yelp.search(searchObject)
+    .then(function(data){
+      results.distance = JSON.parse(data);
+
+      console.log(results);
+      res.send({
+        redirect: '/results'
+      });
+      res.end();
+    })
+    .catch(function(err){
+      console.error(err);
+    });
   })
   .catch(function (err){
     console.error(err);
   });
 
-  console.log(results[0]);
-  res.send({
-    redirect: '/results'
-  });
-  res.end();
 });
 
 app.get("/results", function(req, res) {
