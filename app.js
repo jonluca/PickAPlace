@@ -24,7 +24,7 @@ yelp.search({ term: 'food', location: '90007'})
 
 
 app.get("/", function(req, res){
-	res.render("views/landing");
+	res.render("landing.ejs");
 })
 
 
