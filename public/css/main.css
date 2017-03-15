@@ -40,6 +40,18 @@ body {
   animation: sk-rotateplane 1.2s infinite ease-in-out;
 }
 
+.column {
+  -webkit-column-count: 3; /* Chrome, Safari, Opera */
+  -moz-column-count: 3; /* Firefox */
+  column-count: 3;
+  -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+  -moz-column-gap: 40px; /* Firefox */
+  column-gap: 40px;
+  -webkit-column-rule: 1px solid lightblue; /* Chrome, Safari, Opera */
+  -moz-column-rule: 1px solid lightblue; /* Firefox */
+  column-rule: 1px solid lightblue;
+}
+
 #footer {
   position: absolute;
   bottom: 0;
@@ -47,7 +59,7 @@ body {
   height: 20px;   /* Height of the footer */
 }
 
-#title{
+#title {
   font-size: 40px;
 }
 
