@@ -18,20 +18,6 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
-
-// yelp.search({
-//   term: 'food',
-//   location: '90007'
-// })
-//   .then(function(data) {
-//     console.log(data);
-//   })
-//   .catch(function(err) {
-//     console.log(err);
-//   });
-
-
 app.get("/", function(req, res) {
   res.render("landing.ejs");
 });
@@ -54,7 +40,6 @@ app.post("/search", function(req, res) {
   }
 
   searchObject.sort_by = 'rating';
-
   var results = [];
 
   yelp.search(searchObject)
@@ -67,10 +52,15 @@ app.post("/search", function(req, res) {
   });
 
   console.log(results[0]);
-  res.render("results.ejs");
-  res.end('Completed Succesfully!');
+  res.send({
+    redirect: '/results'
+  });
+  res.end();
 });
 
+app.get("/results", function(req, res) {
+  res.render("results.ejs");
+});
 
 app.listen(3000, function() {
   console.log("Listening on port 3000!!!");

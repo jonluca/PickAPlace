@@ -1,20 +1,14 @@
 <% include partials/header %>
-
 <div class="container">
-    <h1 class="text-center">Pick A Place</h1>
+  <h1 id="title" class="text-center">Pick A Place</h1>
+</div>
+<div class="container">
+  <div class="loading">
+    <div class="spinner"></div>
   </div>
-  <div class="container">
-    <div class="loading">
-      <div class="spinner"></div>
-    </div>
-
-    <!--Search Page-->
-    <div class="searchpage text-center">
-      <button class="btn btn-default" id="search">Locate Me!</button>
-    </div>
-    <hr>
-    <footer>
-      <p>&copy; 2017 JonLuca De Caro - Quinn Ngo</p>
-    </footer>
+  <!--Search Page-->
+  <div class="searchpage text-center">
+    <button class="btn btn-default" id="search">Locate Me!</button>
   </div>
+</div>
 <% include partials/footer%>
