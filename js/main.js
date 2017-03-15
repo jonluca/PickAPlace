@@ -10,7 +10,6 @@ $(document).ready(function() {
   }
   function showPosition(position) {
     var x = document.getElementById("loc");
-
     x.innerHTML = "Latitude: " + position.coords.latitude +
     "<br>Longitude: " + position.coords.longitude;
   }
@@ -43,4 +42,5 @@ $(document).ready(function() {
   $('#demo').click(function() {
     getLocation();
   });
+
 });
