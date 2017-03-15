@@ -42,39 +42,33 @@ app.post("/search", function(req, res) {
   searchObject.sort_by = 'rating';
   var results = {};
 
-
-
-
   yelp.search(searchObject)
-  .then(function(data){
-    // console.log(JSON.parse(data));
+    .then(function(data) {
+      // console.log(JSON.parse(data));
 
-    results.rating = JSON.parse(data);
-    searchObject.sort_by = 'distance';
+      results.rating = JSON.parse(data);
+      searchObject.sort_by = 'distance';
 
-    yelp.search(searchObject)
-    .then(function(data){
-      results.distance = JSON.parse(data);
+      yelp.search(searchObject)
+        .then(function(data) {
+          results.distance = JSON.parse(data);
 
-      console.log(results);
-      res.send({
-        redirect: '/results'
-      });
-      res.end();
+          console.log(results);
+          res.send({
+            results: results,
+          });
+          res.end();
+        })
+        .catch(function(err) {
+          console.error(err);
+        });
     })
-    .catch(function(err){
+    .catch(function(err) {
       console.error(err);
     });
-  })
-  .catch(function (err){
-    console.error(err);
-  });
 
 });
 
-app.get("/results", function(req, res) {
-  res.render("results.ejs");
-});
 
 app.listen(3000, function() {
   console.log("Listening on port 3000!!!");

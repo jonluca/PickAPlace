@@ -11,9 +11,10 @@ $(document).ready(function() {
       },
       success: function(data, code, jqXHR) {
         $('.loading').css('display', 'none');
-        if (typeof data.redirect == 'string') {
-          window.location = data.redirect
-        }
+        $('.columns').css('display', 'block');
+        $('.choose').css('display', 'block');
+        $('.searchpage').css('display', 'none');
+        console.log(data.results);
       }
     });
   }

@@ -52,6 +52,13 @@ body {
   column-rule: 1px solid lightblue;
 }
 
+.columns{
+  display: none;
+}
+
+.choose{
+  display: none;
+}
 #footer {
   position: absolute;
   bottom: 0;
