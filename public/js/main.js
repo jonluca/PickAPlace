@@ -10,11 +10,23 @@ $(document).ready(function() {
         longitude: position.coords.longitude,
       },
       success: function(data, code, jqXHR) {
+
+        /*Hide loading icon, title, and button in that order*/
         $('.loading').css('display', 'none');
-        $('.columns').css('display', 'block');
-        $('.choose').css('display', 'block');
+        $('#title').css('display', 'none');
         $('.searchpage').css('display', 'none');
-        console.log(data.results);
+
+        var rating = data.results["rating"];
+        var distance = data.results["distance"];
+
+        console.log(distance);
+        /*Show three columns and new title*/
+        $('.choose').css('display', 'block');
+
+        $('.columns').css('display', 'block');
+
+        $('#distanceImage').src = distance["businesses"][0]["image_url"];
+
       }
     });
   }
@@ -28,7 +40,35 @@ $(document).ready(function() {
     $('.loading').css('display', 'block');
 
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(sendLoc);
+      // navigator.geolocation.getCurrentPosition(sendLoc);
+      $.ajax({
+        method: 'POST',
+        url: "/search",
+        type: 'json',
+        data: {
+          latitude: '34.0290238',
+          longitude: '-118.2721847',
+        },
+        success: function(data, code, jqXHR) {
+
+          /*Hide loading icon, title, and button in that order*/
+          $('.loading').css('display', 'none');
+          $('#title').css('display', 'none');
+          $('.searchpage').css('display', 'none');
+
+          var rating = data.results["rating"];
+          var distance = data.results["distance"];
+
+          console.log(distance);
+          /*Show three columns and new title*/
+          $('.choose').css('display', 'block');
+
+          $('.columns').css('display', 'block');
+
+          $('#distanceImage').src = distance["businesses"][0]["image_url"];
+
+        }
+      });
     } else {
       button.innerHTML = "Geolocation is not supported by this browser.";
     }
