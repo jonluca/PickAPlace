@@ -1,5 +1,19 @@
 $(document).ready(function() {
+  function getLocation() {
+    var x = document.getElementById("loc");
 
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+  function showPosition(position) {
+    var x = document.getElementById("loc");
+
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+  }
   //generates a wordcloud from the raw lyrics text
   var getWordFrequency = function(text) {
     var wordFreqOptions = {
@@ -197,32 +211,6 @@ $(document).ready(function() {
     });
   }
 
-  //formats the artist search suggestions
-  function formatArtist(artist) {
-    var markup;
-    if (!artist.loading) {
-      if (artist.images.length >= 1) {
-        markup = "<div class='artist-searchbar-name'>" + artist.name + "</div>" +
-          "<div class='artist-searchbar-image'><img width='64' height='64' src='" + artist.images[0].url + "' /></div>";
-      } else {
-        markup = "<div class='artist-searchbar-name'>" + artist.name + "</div>";
-      }
-    } else {
-      markup = "<p>Loading...</p>"
-    }
-    return markup;
-  }
-
-
-  //formats the artist once selected in search bar
-  function formatArtistSelection(artist) {
-    var markup;
-    if (artist.name) {
-      markup = '<option value="' + artist.id + '" selected="selected">' + artist.name + '</option>';
-    } else
-      markup = 'Search for an artist!';
-    return markup;
-  }
 
   //retrieves the top songs for a given artist id
   var getSongs = function(artistId, callback) {
@@ -239,49 +227,6 @@ $(document).ready(function() {
     });
   };
 
-  function cleanSong(song) {
-    if (song.name.includes('feat.')) {
-      var index = song.name.indexOf('feat.');
-      song.name = song.name.substring(0, index);
-    }
-
-    var dirty = song.name;
-    var clean = song.name.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/\s/g, '');
-    cleanToDirtySongMap[clean] = dirty;
-    return clean;
-  }
-
-
-  $('#searchbar').select2({
-    ajax: {
-      url: "php/artist_search.php",
-      dataType: 'json',
-      delay: 250,
-      data: function(params) {
-        return {
-          artist: params.term, // search term
-        };
-      },
-      processResults: function(data, params) {
-        // parse the results into the format expected by Select2
-
-        return {
-          results: data.items,
-        };
-      },
-      cache: true
-    },
-    escapeMarkup: function(markup) {
-      return markup;
-    }, // let our custom formatter work
-    minimumInputLength: 3,
-    templateResult: formatArtist, // omitted for brevity, see the source of this page
-    templateSelection: formatArtistSelection // omitted for brevity, see the source of this page
-  });
-
-  $('#searchbar').on("select2:select", function(e) {
-    $('#search').removeAttr('disabled');
-  });
 
   //search button on click
   $('#search').click(function() {
@@ -307,6 +252,10 @@ $(document).ready(function() {
       getLyrics(artistName, fullSongList);
     });
   });
+
+  $('#demo').click(function() {
+    getLocation();
+  })
 
   //go back to canvas
   $('.backToCanvas').click(function() {
