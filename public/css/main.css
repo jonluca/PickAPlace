@@ -93,6 +93,11 @@ body {
   margin: 0px auto;
 }
 
+.info{
+  height: 100px;
+  white-space: pre-line;
+}
+
 @-webkit-keyframes sk-rotateplane {
   0% {
     -webkit-transform: perspective(120px)

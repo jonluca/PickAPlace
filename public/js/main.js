@@ -112,7 +112,7 @@ $(document).ready(function() {
           $('#rateRest').text(rating["name"])
 
           $('#distPrice').text("Price: " + distance["price"])
-          $('#ratePrice').text("Price: " + rating["price"])
+          $('#ratePrice').text("Price: " + rating["price"] + '\n' + rating["phone"] + '\n' + "Rating: " + rating["rating"])
           $('#pricePrice').text("Price: " + price["price"])
 
         }
