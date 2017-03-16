@@ -54,15 +54,16 @@ body {
   margin-top: 8px;
 }
 
-.column{
+.column {
   padding-top: 20px;
   min-height: 800px;
 }
 
-.choose{
+.choose {
   display: none;
   margin-top: 0px;
 }
+
 #footer {
   position: absolute;
   bottom: 0;
@@ -75,11 +76,21 @@ body {
 }
 
 .category {
-
 }
 
-.catImage{
-  max-width: 200px;
+.crop {
+  height: 300px;
+  width: 300px;
+  overflow: hidden;
+  background-size:cover; 
+  background-position:center center; 
+  background-repeat:no-repeat; 
+  background-image:url('somepic.jpg');
+  box-shadow: 8px 8px 10px #aaa;
+  border: 15px solid #3e2b14;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin: 0px auto;
 }
 
 @-webkit-keyframes sk-rotateplane {

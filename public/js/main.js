@@ -60,16 +60,16 @@ $(document).ready(function() {
           var rating = data.results["rating"];
           var distance = data.results["distance"];
           var price = data.results["price"];
-
-          console.log(distance);
           /*Show three columns and new title*/
           $('.choose').css('display', 'block');
 
           $('.columns').css('display', 'block');
 
-          $('#distanceImage').attr("src", distance["image_url"]);
-          $('#ratingImage').attr("src", rating["image_url"]);
-          $('#priceImage').attr("src", price["image_url"]);
+          console.log(rating)
+
+          $('#distanceImage').css("background-image", "url(" + distance["image_url"] + ")");
+          $('#ratingImage').css("background-image", "url(" + rating["image_url"] + ")");
+          $('#priceImage').css("background-image", "url(" + price["image_url"] + ")");
 
           $('#goPrice').click(function() {
             var name = price["name"];
@@ -106,8 +106,6 @@ $(document).ready(function() {
               alert('Please allow popups for this website');
             }
           })
-          $('#goDistance').click(function() {})
-          $('#goRating').click(function() {})
 
         }
       });
