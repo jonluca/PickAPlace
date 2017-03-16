@@ -3,6 +3,8 @@
 body {
   font-family: 'Raleway', sans-serif;
   background-color: #FFFFFF;
+  position: relative;
+  min-height: 100%;
 }
 
 .btn-default {
@@ -82,10 +84,10 @@ body {
   height: 300px;
   width: 300px;
   overflow: hidden;
-  background-size:cover; 
-  background-position:center center; 
-  background-repeat:no-repeat; 
-  background-image:url('somepic.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url('somepic.jpg');
   box-shadow: 8px 8px 10px #aaa;
   border: 15px solid #3e2b14;
   padding: 10px;
@@ -93,7 +95,7 @@ body {
   margin: 0px auto;
 }
 
-.info{
+.info {
   height: 100px;
   white-space: pre-line;
 }
