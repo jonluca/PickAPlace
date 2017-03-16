@@ -65,7 +65,8 @@ $(document).ready(function() {
 
           $('.columns').css('display', 'block');
 
-          $('#distanceImage').src = distance["businesses"][0]["image_url"];
+          $('#distanceImage').attr("src", distance["businesses"][0]["image_url"]);
+
 
         }
       });
