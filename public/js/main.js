@@ -25,7 +25,7 @@ $(document).ready(function() {
 
         $('.columns').css('display', 'block');
 
-        $('#distanceImage').attr("src", distance["image_url"]);
+
 
       }
     });
@@ -58,6 +58,7 @@ $(document).ready(function() {
 
           var rating = data.results["rating"];
           var distance = data.results["distance"];
+          var price = data.results["price"];
 
           console.log(distance);
           /*Show three columns and new title*/
@@ -65,7 +66,10 @@ $(document).ready(function() {
 
           $('.columns').css('display', 'block');
 
-          $('#distanceImage').src = distance["businesses"][0]["image_url"];
+          $('#distanceImage').attr("src", distance["image_url"]);
+          $('#ratingImage').attr("src", rating["image_url"]);
+          $('#priceImage').attr("src", price["image_url"]);
+
 
         }
       });

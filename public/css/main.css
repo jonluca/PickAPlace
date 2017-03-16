@@ -73,9 +73,14 @@ body {
   font-size: 40px;
 }
 
-#category {
+.category {
 
 }
+
+.catImage{
+  max-width: 200px;
+}
+
 @-webkit-keyframes sk-rotateplane {
   0% {
     -webkit-transform: perspective(120px)
