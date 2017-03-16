@@ -68,17 +68,16 @@ app.post("/search", function(req, res) {
   searches.push(distanceSearch);
   searches.push(priceSearch);
 
-  Promise.all(searches).then(function(data){
-      results.rating = JSON.parse(data[0]).businesses[0];
-      results.distance = JSON.parse(data[1]).businesses[0];
-      results.price = JSON.parse(data[2]).businesses[0];
-      console.log(results);
-      res.send({
-        results: results,
-      });
-      res.end();
+  Promise.all(searches).then(function(data) {
+    results.rating = JSON.parse(data[0]).businesses[0];
+    results.distance = JSON.parse(data[1]).businesses[0];
+    results.price = JSON.parse(data[2]).businesses[0];
+    res.send({
+      results: results,
+    });
+    res.end();
 
-    }
+  }
   );
 
 });
