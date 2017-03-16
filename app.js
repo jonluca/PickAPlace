@@ -34,6 +34,7 @@ app.post("/search", function(req, res) {
     longitude: longitude,
     radius: 16000,
     limit: 1,
+    open_now: true,
     sort_by: 'rating'
   }
 
@@ -43,6 +44,7 @@ app.post("/search", function(req, res) {
     longitude: longitude,
     radius: 16000,
     limit: 1,
+    open_now: true,
     sort_by: 'distance'
   }
 
@@ -51,6 +53,7 @@ app.post("/search", function(req, res) {
     latitude: latitude,
     longitude: longitude,
     radius: 16000,
+    open_now: true,
     limit: 1,
     sort_by: 'best_match',
     price: '1'
