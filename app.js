@@ -26,46 +26,71 @@ app.post("/search", function(req, res) {
   // get data from form and use it to search
   var latitude = req.body.latitude;
   var longitude = req.body.longitude;
-
-  console.log(req.body);
-  // to be renamed
-  var term = req.body.search;
-
-  var searchObject = {
+  var results = {};
+  var searches = [];
+  const searchByRating = {
     term: 'restaurant',
     latitude: latitude,
     longitude: longitude,
     radius: 16000,
-    limit: 1
+    limit: 1,
+    sort_by: 'rating'
   }
 
-  searchObject.sort_by = 'rating';
-  var results = {};
+  const searchByDistance = {
+    term: 'restaurant',
+    latitude: latitude,
+    longitude: longitude,
+    radius: 16000,
+    limit: 1,
+    sort_by: 'distance'
+  }
 
-  yelp.search(searchObject)
-    .then(function(data) {
-      // console.log(JSON.parse(data));
 
-      results.rating = JSON.parse(data);
-      searchObject.sort_by = 'distance';
+  var ratingSearch = yelp.search(searchByRating);
 
-      yelp.search(searchObject)
-        .then(function(data) {
-          results.distance = JSON.parse(data);
+  var distanceSearch = yelp.search(searchByDistance);
 
-          console.log(results);
-          res.send({
-            results: results,
-          });
-          res.end();
-        })
-        .catch(function(err) {
-          console.error(err);
-        });
-    })
-    .catch(function(err) {
-      console.error(err);
-    });
+  searches.push(ratingSearch);
+  searches.push(distanceSearch);
+
+  Promise.all(searches).then(function(data){
+      results.rating = JSON.parse(data[0]);
+      results.distance = JSON.parse(data[1]);
+      console.log(results);
+      res.send({
+        results: results,
+      });
+      res.end();
+
+    }
+  );
+
+
+  // yelp.search(searchObject)
+  //   .then(function(data) {
+  //     // console.log(JSON.parse(data));
+
+  //     results.rating = JSON.parse(data);
+  //     searchObject.sort_by = 'distance';
+
+  //     yelp.search(searchObject)
+  //       .then(function(data) {
+  //         results.distance = JSON.parse(data);
+
+  //         console.log(results);
+  //         res.send({
+  //           results: results,
+  //         });
+  //         res.end();
+  //       })
+  //       .catch(function(err) {
+  //         console.error(err);
+  //       });
+  //   })
+  //   .catch(function(err) {
+  //     console.error(err);
+  //   });
 
 });
 
