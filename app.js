@@ -46,17 +46,29 @@ app.post("/search", function(req, res) {
     sort_by: 'distance'
   }
 
+  const searchByPrice = {
+    term: 'restaurant',
+    latitude: latitude,
+    longitude: longitude,
+    radius: 16000,
+    limit: 1,
+    sort_by: 'best_match',
+    price: '1'
+  }
+
 
   var ratingSearch = yelp.search(searchByRating);
-
   var distanceSearch = yelp.search(searchByDistance);
+  var priceSearch = yelp.search(searchByPrice);
 
   searches.push(ratingSearch);
   searches.push(distanceSearch);
+  searches.push(priceSearch);
 
   Promise.all(searches).then(function(data){
-      results.rating = JSON.parse(data[0]);
-      results.distance = JSON.parse(data[1]);
+      results.rating = JSON.parse(data[0]).businesses[0];
+      results.distance = JSON.parse(data[1]).businesses[0];
+      results.price = JSON.parse(data[2]).businesses[0];
       console.log(results);
       res.send({
         results: results,
@@ -65,32 +77,6 @@ app.post("/search", function(req, res) {
 
     }
   );
-
-
-  // yelp.search(searchObject)
-  //   .then(function(data) {
-  //     // console.log(JSON.parse(data));
-
-  //     results.rating = JSON.parse(data);
-  //     searchObject.sort_by = 'distance';
-
-  //     yelp.search(searchObject)
-  //       .then(function(data) {
-  //         results.distance = JSON.parse(data);
-
-  //         console.log(results);
-  //         res.send({
-  //           results: results,
-  //         });
-  //         res.end();
-  //       })
-  //       .catch(function(err) {
-  //         console.error(err);
-  //       });
-  //   })
-  //   .catch(function(err) {
-  //     console.error(err);
-  //   });
 
 });
 
