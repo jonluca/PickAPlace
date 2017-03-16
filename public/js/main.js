@@ -107,6 +107,14 @@ $(document).ready(function() {
             }
           })
 
+          $('#priceRest').text(price["name"])
+          $('#distRest').text(distance["name"])
+          $('#rateRest').text(rating["name"])
+
+          $('#distPrice').text("Price: " + distance["price"])
+          $('#ratePrice').text("Price: " + rating["price"])
+          $('#pricePrice').text("Price: " + price["price"])
+
         }
       });
     } else {
