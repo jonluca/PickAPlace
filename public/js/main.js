@@ -79,6 +79,10 @@ $(document).ready(function() {
 
   }
 
+  function locationFailed(err) {
+    console.log(err)
+  }
+
   function convertToKM(meters) {
     var m = parseInt(meters);
     return '' + Math.round(m / 1000) + "km";
@@ -92,17 +96,20 @@ $(document).ready(function() {
     $('.loading').css('display', 'block');
 
     if (navigator.geolocation) {
-      // navigator.geolocation.getCurrentPosition(sendLoc);
-      $.ajax({
-        method: 'POST',
-        url: "/search",
-        type: 'json',
-        data: {
-          latitude: '34.0290238',
-          longitude: '-118.2721847',
-        },
-        success: showRestaurants,
+      navigator.geolocation.getCurrentPosition(sendLoc, locationFailed, {
+        timeout: 10000,
+        maximumAge: 180000
       });
+    // $.ajax({
+    //   method: 'POST',
+    //   url: "/search",
+    //   type: 'json',
+    //   data: {
+    //     latitude: '34.0290238',
+    //     longitude: '-118.2721847',
+    //   },
+    //   success: showRestaurants,
+    // });
     } else {
       button.innerHTML = "Geolocation is not supported by this browser.";
     }
