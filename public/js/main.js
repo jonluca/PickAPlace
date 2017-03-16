@@ -30,8 +30,10 @@ $(document).ready(function() {
     });
   }
 
-
-
+  function convertToKM(meters) {
+    var m = parseInt(meters);
+    return '' + Math.round(m / 1000) + "km";
+  }
   //search button on click
   $('#search').click(function() {
     // add loading bar
@@ -111,9 +113,9 @@ $(document).ready(function() {
           $('#distRest').text(distance["name"])
           $('#rateRest').text(rating["name"])
 
-          $('#distPrice').text("Price: " + distance["price"])
-          $('#ratePrice').text("Price: " + rating["price"] + '\n' + rating["phone"] + '\n' + "Rating: " + rating["rating"])
-          $('#pricePrice').text("Price: " + price["price"])
+          $('#distPrice').text("Price: " + distance["price"] + '\n' + distance["display_phone"] + '\n' + "Rating: " + distance["rating"] + '\n' + "Distance: " + convertToKM(distance["distance"]))
+          $('#ratePrice').text("Price: " + rating["price"] + '\n' + rating["display_phone"] + '\n' + "Rating: " + rating["rating"] + '\n' + "Distance: " + convertToKM(rating["distance"]))
+          $('#pricePrice').text("Price: " + price["price"] + '\n' + price["display_phone"] + '\n' + "Rating: " + price["rating"] + '\n' + "Distance: " + convertToKM(price["distance"]))
 
         }
       });
