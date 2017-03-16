@@ -25,7 +25,7 @@ $(document).ready(function() {
 
         $('.columns').css('display', 'block');
 
-        $('#distanceImage').attr("src", distance["businesses"][0]["image_url"]);
+        $('#distanceImage').attr("src", distance["image_url"]);
 
       }
     });
