@@ -51,16 +51,17 @@ body {
   -moz-column-rule: 1px solid lightblue; /* Firefox */
   column-rule: 1px solid lightblue;
   display: none;
-  margin-top: 30px;
+  margin-top: 8px;
 }
 
 .column{
-  margin: 10px auto;
+  padding-top: 20px;
   min-height: 800px;
 }
 
 .choose{
   display: none;
+  margin-top: 0px;
 }
 #footer {
   position: absolute;

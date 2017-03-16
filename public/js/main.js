@@ -26,10 +26,11 @@ $(document).ready(function() {
         $('.columns').css('display', 'block');
 
 
-
       }
     });
   }
+
+
 
   //search button on click
   $('#search').click(function() {
@@ -70,6 +71,43 @@ $(document).ready(function() {
           $('#ratingImage').attr("src", rating["image_url"]);
           $('#priceImage').attr("src", price["image_url"]);
 
+          $('#goPrice').click(function() {
+            var name = price["name"];
+            var win = window.open('https://www.google.com/maps?q=' + encodeURIComponent(name), '_blank');
+            if (win) {
+              //Browser has allowed it to be opened
+              win.focus();
+            } else {
+              //Browser has blocked it
+              alert('Please allow popups for this website');
+            }
+          })
+
+          $('#goRating').click(function() {
+            var name = rating["name"];
+            var win = window.open('https://www.google.com/maps?q=' + encodeURIComponent(name), '_blank');
+            if (win) {
+              //Browser has allowed it to be opened
+              win.focus();
+            } else {
+              //Browser has blocked it
+              alert('Please allow popups for this website');
+            }
+          })
+
+          $('#goDistance').click(function() {
+            var name = distance["name"];
+            var win = window.open('https://www.google.com/maps?q=' + encodeURIComponent(name), '_blank');
+            if (win) {
+              //Browser has allowed it to be opened
+              win.focus();
+            } else {
+              //Browser has blocked it
+              alert('Please allow popups for this website');
+            }
+          })
+          $('#goDistance').click(function() {})
+          $('#goRating').click(function() {})
 
         }
       });
