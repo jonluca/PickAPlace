@@ -61,17 +61,12 @@ body {
 .category {
 }
 
-.crop {
+img{
+  object-fit: cover;
   height: 300px;
   width: 300px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-image: url('somepic.jpg');
-  margin-bottom: 20px;
-  margin: 0px auto;
 }
+
 
 @-webkit-keyframes sk-rotateplane {
   0% {
