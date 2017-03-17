@@ -104,7 +104,8 @@ app.post("/search", function(req, res) {
 });
 
 app.get("/results", function(req, res){
-	res.render("results.ejs", {results: results});
+	// res.render("results.ejs", {results: results});
+  res.render("results.ejs", {rating: results.rating, distance: results.distance, price: results.price});
 });
 
 
