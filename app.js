@@ -17,9 +17,14 @@ function convertToMiles(meters) {
   return Math.round(m *.0621371)/100 + " miles";
 }
 
+
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
+
+
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -33,7 +38,6 @@ var results = {};
 
 app.post("/search", function(req, res) {
   // get data from form and use it to search
-  console.log(req.body);
   var latitude = req.body.latitude;
   var longitude = req.body.longitude;
   // var results = {};
@@ -83,16 +87,15 @@ app.post("/search", function(req, res) {
     results.distance = JSON.parse(data[1]).businesses[0];
     results.price = JSON.parse(data[2]).businesses[0];
 
+    // convert distances to mile strings
     results.rating.distance = convertToMiles(results.rating.distance);
     results.distance.distance = convertToMiles(results.rating.distance);
     results.price.distance = convertToMiles(results.price.distance);
 
+    // get uri encodings
     results.rating.uri = encodeURIComponent(results.rating.name);
     results.distance.uri = encodeURIComponent(results.distance.name);
     results.price.uri = encodeURIComponent(results.price.name);
-    // results.rating.uri = encodeURIComponent(results.rating.name);
-    // results.distance.uri = encodeURIComponent(results.distance.name);
-    // results.price.uri = encodeURIComponent(results.price.name);
 
     console.log(results);
     res.send({
