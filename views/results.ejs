@@ -1,7 +1,7 @@
 <% include partials/header%>
 	<div class="container">
 	  	<div class="row text-center">
-			<div class="col-sm-4">
+			<div class="col-md-4">
 				<h1 class="category">Best Rating</h1>
 				<div class="name">
 					<%= rating.name%>
@@ -19,7 +19,7 @@
 				<a href="https://google.com/maps/place/?q=<%= rating.uri%>" class="btn btn-default" id="goRating" >Take me here!</a>
 			</div>
 
-			<div class="col-sm-4">
+			<div class="col-md-4">
 				<h1 class="category">Lowest Price</h1>
 				<div class="name">
 					<%= price.name%>
@@ -37,7 +37,7 @@
 				<a href="https://google.com/maps/place/?q=<%= price.uri%>" class="btn btn-default" id="goPrice">Take me here!</a>
 			</div>
 
-			<div class="col-sm-4"></div>
+			<div class="col-md-4"></div>
 				<h1 class="category">Closest</h1>
 				<div class="name">
 					<%= distance.name%>
