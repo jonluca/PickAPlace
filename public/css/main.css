@@ -7,6 +7,19 @@ body {
   min-height: 100%;
 }
 
+
+#price{
+  background-color: #77DD77;
+}
+
+#distance{
+  background-color: #FF6961;
+}
+
+#rating{
+  background-color: #779ECB;
+}
+
 .btn-default {
   background-color: #FD9640;
   color: white;
@@ -26,7 +39,7 @@ body {
 
 .btn-default:hover {
   color: black;
-  background-color: #fff;
+  background-color: #FFF;
 }
 
 .loading {
