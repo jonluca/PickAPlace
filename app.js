@@ -9,7 +9,13 @@ var yelp = new Yelp({
   app_secret: "4yJqQck1j6FrkAYNjE5TAcv3LRxDGrOX9Bqmv8Zrh0LClppgUFWHEhdK6IymsHdp"
 });
 
+
 var app = express();
+
+function convertToMiles(meters) {
+  var m = parseInt(meters);
+  return Math.round(m *.0621371)/100 + " miles";
+}
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -22,11 +28,15 @@ app.get("/", function(req, res) {
   res.render("landing.ejs");
 });
 
+
+var results = {};
+
 app.post("/search", function(req, res) {
   // get data from form and use it to search
+  console.log(req.body);
   var latitude = req.body.latitude;
   var longitude = req.body.longitude;
-  var results = {};
+  // var results = {};
   var searches = [];
   const searchByRating = {
     term: 'restaurant',
@@ -72,14 +82,29 @@ app.post("/search", function(req, res) {
     results.rating = JSON.parse(data[0]).businesses[0];
     results.distance = JSON.parse(data[1]).businesses[0];
     results.price = JSON.parse(data[2]).businesses[0];
+
+    results.rating.distance = convertToMiles(results.rating.distance);
+    results.distance.distance = convertToMiles(results.rating.distance);
+    results.price.distance = convertToMiles(results.price.distance);
+
+    results.rating.uri = encodeURIComponent(results.rating.name);
+    results.distance.uri = encodeURIComponent(results.distance.name);
+    results.price.uri = encodeURIComponent(results.price.name);
+    // results.rating.uri = encodeURIComponent(results.rating.name);
+    // results.distance.uri = encodeURIComponent(results.distance.name);
+    // results.price.uri = encodeURIComponent(results.price.name);
+
+    console.log(results);
     res.send({
       results: results,
+      redirect: 'results'
     });
     res.end();
+  });
+});
 
-  }
-  );
-
+app.get("/results", function(req, res){
+	res.render("results.ejs", {results: results});
 });
 
 

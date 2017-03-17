@@ -42,27 +42,8 @@ body {
   animation: sk-rotateplane 1.2s infinite ease-in-out;
 }
 
-.columns {
-  -webkit-column-count: 3; /* Chrome, Safari, Opera */
-  -moz-column-count: 3; /* Firefox */
-  column-count: 3;
-  -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
-  -moz-column-gap: 40px; /* Firefox */
-  column-gap: 40px;
-  -webkit-column-rule: 1px solid lightblue; /* Chrome, Safari, Opera */
-  -moz-column-rule: 1px solid lightblue; /* Firefox */
-  column-rule: 1px solid lightblue;
-  display: none;
-  margin-top: 8px;
-}
-
-.column {
-  padding-top: 20px;
-  min-height: 800px;
-}
-
 .choose {
-  display: none;
+  /*display: none;*/
   margin-top: 0px;
 }
 
@@ -88,16 +69,8 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   background-image: url('somepic.jpg');
-  box-shadow: 8px 8px 10px #aaa;
-  border: 15px solid #3e2b14;
-  padding: 10px;
   margin-bottom: 20px;
   margin: 0px auto;
-}
-
-.info {
-  height: 100px;
-  white-space: pre-line;
 }
 
 @-webkit-keyframes sk-rotateplane {

@@ -1,0 +1,58 @@
+<% include partials/header%>
+  	<div class="row text-center">
+		<div class="col-md-4">
+			<h1 class="category">Best Rating</h1>
+			<div class="name">
+				<%= results.rating.name%>
+			</div>
+			<img class="crop" src="<%=results.rating.image_url%>">
+			<div class="info">
+				<%= results.rating.price%>
+				<br>
+				<%= results.rating.display_phone%>
+				<br>
+				Rating: <%= results.rating.rating%>
+				<br>
+				Distance: <%= results.rating.distance %>
+			</div>
+			<a href="https://google.com/maps/place/?q=<%= results.rating.uri%>" class="btn btn-default" id="goRating" >Take me here!</a>
+		</div>
+
+		<div class="col-md-4">
+			<h1 class="category">Lowest Price</h1>
+			<div class="name">
+				<%= results.price.name%>
+			</div>
+			<img class="crop" src="<%=results.price.image_url%>">
+			<div class="info">
+				<%= results.price.price%>
+				<br>
+				<%= results.price.display_phone%>
+				<br>
+				Rating: <%= results.price.rating%>
+				<br>
+				Distance: <%= results.price.distance%>
+			</div>
+			<a href="https://google.com/maps/place/?q=<%= results.price.uri%>" class="btn btn-default" id="goPrice">Take me here!</a>
+		</div>
+
+		<div class="col-md-4"></div>
+			<h1 class="category">Closest</h1>
+			<div class="name">
+				<%= results.distance.name%>
+			</div>
+			<img class="crop" src="<%=results.distance.image_url%>">
+			<div class="info">
+				<%= results.distance.price%>
+				<br>
+				<%= results.distance.display_phone%>
+				<br>
+				Rating: <%= results.distance.rating%>
+				<br>
+				Distance: <%= results.distance.distance%>
+			</div>
+			<a href="https://google.com/maps/place/?q=<%= results.distance.uri%>" class="btn btn-default" id="goPrice">Take me here!</a>
+		</div>
+	</div>
+
+<% include partials/footer%>
