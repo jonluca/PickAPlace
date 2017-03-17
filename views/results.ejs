@@ -1,57 +1,59 @@
 <% include partials/header%>
-  	<div class="row text-center">
-		<div class="col-md-4">
-			<h1 class="category">Best Rating</h1>
-			<div class="name">
-				<%= rating.name%>
+	<div class="container">
+	  	<div class="row text-center">
+			<div class="col-sm-4">
+				<h1 class="category">Best Rating</h1>
+				<div class="name">
+					<%= rating.name%>
+				</div>
+				<img src="<%=rating.image_url%>">
+				<div class="info">
+					<%= rating.price%>
+					<br>
+					<%= rating.display_phone%>
+					<br>
+					Rating: <%= rating.rating%>
+					<br>
+					Distance: <%= rating.distance %>
+				</div>
+				<a href="https://google.com/maps/place/?q=<%= rating.uri%>" class="btn btn-default" id="goRating" >Take me here!</a>
 			</div>
-			<img src="<%=rating.image_url%>">
-			<div class="info">
-				<%= rating.price%>
-				<br>
-				<%= rating.display_phone%>
-				<br>
-				Rating: <%= rating.rating%>
-				<br>
-				Distance: <%= rating.distance %>
-			</div>
-			<a href="https://google.com/maps/place/?q=<%= rating.uri%>" class="btn btn-default" id="goRating" >Take me here!</a>
-		</div>
 
-		<div class="col-md-4">
-			<h1 class="category">Lowest Price</h1>
-			<div class="name">
-				<%= price.name%>
+			<div class="col-sm-4">
+				<h1 class="category">Lowest Price</h1>
+				<div class="name">
+					<%= price.name%>
+				</div>
+				<img src="<%=price.image_url%>">
+				<div class="info">
+					<%= price.price%>
+					<br>
+					<%= price.display_phone%>
+					<br>
+					Rating: <%= price.rating%>
+					<br>
+					Distance: <%= price.distance%>
+				</div>
+				<a href="https://google.com/maps/place/?q=<%= price.uri%>" class="btn btn-default" id="goPrice">Take me here!</a>
 			</div>
-			<img src="<%=price.image_url%>">
-			<div class="info">
-				<%= price.price%>
-				<br>
-				<%= price.display_phone%>
-				<br>
-				Rating: <%= price.rating%>
-				<br>
-				Distance: <%= price.distance%>
-			</div>
-			<a href="https://google.com/maps/place/?q=<%= price.uri%>" class="btn btn-default" id="goPrice">Take me here!</a>
-		</div>
 
-		<div class="col-md-4"></div>
-			<h1 class="category">Closest</h1>
-			<div class="name">
-				<%= distance.name%>
+			<div class="col-sm-4"></div>
+				<h1 class="category">Closest</h1>
+				<div class="name">
+					<%= distance.name%>
+				</div>
+				<img src="<%=distance.image_url%>">
+				<div class="info">
+					<%= distance.price%>
+					<br>
+					<%= distance.display_phone%>
+					<br>
+					Rating: <%= distance.rating%>
+					<br>
+					Distance: <%= distance.distance%>
+				</div>
+				<a href="https://google.com/maps/place/?q=<%= distance.uri%>" class="btn btn-default" id="goPrice">Take me here!</a>
 			</div>
-			<img src="<%=distance.image_url%>">
-			<div class="info">
-				<%= distance.price%>
-				<br>
-				<%= distance.display_phone%>
-				<br>
-				Rating: <%= distance.rating%>
-				<br>
-				Distance: <%= distance.distance%>
-			</div>
-			<a href="https://google.com/maps/place/?q=<%= distance.uri%>" class="btn btn-default" id="goPrice">Take me here!</a>
 		</div>
 	</div>
 

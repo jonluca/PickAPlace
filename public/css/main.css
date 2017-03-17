@@ -16,6 +16,10 @@ body {
   font-size: 28px;
 }
 
+.row{
+  line-height: 2em;
+}
+
 .btn-default:disabled {
   color: #ccc;
 }
@@ -42,6 +46,10 @@ body {
   animation: sk-rotateplane 1.2s infinite ease-in-out;
 }
 
+.name{
+  font-size: 150%;
+}
+
 .choose {
   /*display: none;*/
   margin-top: 0px;
@@ -58,13 +66,16 @@ body {
   font-size: 40px;
 }
 
-.category {
+.info{
+  font-size: 120%;
 }
 
 img{
   object-fit: cover;
   height: 300px;
   width: 300px;
+  border: 10px solid #3e2b14;
+  margin: 10px;
 }
 
 
