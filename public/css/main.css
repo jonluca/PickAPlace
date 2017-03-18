@@ -1,22 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
-body {
-  font-family: 'Raleway', sans-serif;
-  background-color: #FFFFFF;
-  position: relative;
-  min-height: 100%;
+html {
+  height: 100%;
 }
 
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: #FFBC48;
+  position: relative;
+  min-height: 100%;
+  flex: 1;
+}
 
-#price{
+#price {
   background-color: #77DD77;
 }
 
-#distance{
+#distance {
   background-color: #FF6961;
 }
 
-#rating{
+#rating {
   background-color: #779ECB;
 }
 
@@ -27,9 +31,10 @@ body {
   padding: 10px 50px;
   transition: all .3s ease;
   font-size: 28px;
+  border: none;
 }
 
-.row{
+.row {
   line-height: 2em;
 }
 
@@ -38,7 +43,7 @@ body {
 }
 
 .btn-default:hover {
-  color: black;
+  color: #FFBC48;
   background-color: #FFF;
 }
 
@@ -59,11 +64,12 @@ body {
   animation: sk-rotateplane 1.2s infinite ease-in-out;
 }
 
-.name{
+.name {
   font-size: 150%;
 }
 
 .choose {
+
   /*display: none;*/
   margin-top: 0px;
 }
@@ -79,18 +85,23 @@ body {
   font-size: 40px;
 }
 
-.info{
+.logo {
+  width: 300px;
+  display: block;
+  margin: auto;
+}
+
+.info {
   font-size: 120%;
 }
 
-img{
+.restImage {
   object-fit: cover;
   height: 300px;
   width: 300px;
   border: 10px solid #3e2b14;
   margin: 10px;
 }
-
 
 @-webkit-keyframes sk-rotateplane {
   0% {
