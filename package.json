@@ -1,7 +1,7 @@
 {
-  "name": "pickaplace",
+  "name": "PickAPlace",
   "version": "1.0.0",
-  "description": "narrows down search results for yelp",
+  "description": "Narrows down search results for yelp",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
