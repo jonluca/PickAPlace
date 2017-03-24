@@ -22,12 +22,14 @@ $(document).ready(function() {
     $('#search').click(function() {
         // add loading bar
         var button = document.getElementById('search');
+        $("#error").text("Loading, may take a while!");
+
 
         $('.loading').css('display', 'block');
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(sendLoc, locationFailed, {
-                timeout: 10000,
+                timeout: 10000000,
                 maximumAge: 180000
             });
         } else {
