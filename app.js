@@ -29,14 +29,14 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.get("/", function(req, res) {
+app.get("/PickAPlace/", function(req, res) {
     res.render("landing.ejs");
 });
 
 
 var results = {};
 
-app.post("/search", function(req, res) {
+app.post("/PickAPlace/search", function(req, res) {
     // get data from form and use it to search
     var latitude = req.body.latitude;
     var longitude = req.body.longitude;
@@ -106,7 +106,7 @@ app.post("/search", function(req, res) {
     });
 });
 
-app.get("/results", function(req, res) {
+app.get("/PickAPlace/results", function(req, res) {
     // res.render("results.ejs", {results: results});
     res.render("results.ejs", {
         rating: results.rating,
@@ -117,5 +117,5 @@ app.get("/results", function(req, res) {
 
 
 app.listen(8081, 'localhost', function() {
-    console.log("Listening on port 8081!!!");
+    console.log("Listening on port 8081!");
 });
