@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({
 
 
 app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/PickAPlace/', express.static(path.join(__dirname, 'public')));
 
 
 app.get("/PickAPlace/", function(req, res) {
