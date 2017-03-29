@@ -86,7 +86,6 @@ app.post("/PickAPlace/search", function(req, res) {
         results.rating = JSON.parse(data[0]).businesses[0];
         results.distance = JSON.parse(data[1]).businesses[0];
         results.price = JSON.parse(data[2]).businesses[0];
-        console.log(results.rating);
         // convert distances to mile strings
         results.rating.distance = convertToMiles(results.rating.distance);
         results.distance.distance = convertToMiles(results.rating.distance);
@@ -94,9 +93,9 @@ app.post("/PickAPlace/search", function(req, res) {
 
         var url_prepend = "http://maps.google.com?q=";
         // get uri encodings
-        results.rating.uri = encodeURIComponent(results.rating.name);
-        results.distance.uri = encodeURIComponent(results.distance.name);
-        results.price.uri = encodeURIComponent(results.price.name);
+        results.rating.uri = encodeURIComponent(url_prepend + results.rating.coordinates.longitude + "," + results.rating.coordinates.latitude);
+        results.distance.uri = encodeURIComponent(url_prepend + results.distance.coordinates.longitude + "," + results.distance.coordinates.latitude);
+        results.price.uri = encodeURIComponent(url_prepend + results.price.coordinates.longitude + "," + results.price.coordinates.latitude);
 
         console.log(results);
         res.send({
