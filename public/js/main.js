@@ -29,8 +29,7 @@ $(document).ready(function() {
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(sendLoc, locationFailed, {
-                timeout: 10000000,
-                maximumAge: 180000
+                timeout: 10000000
             });
         } else {
             button.innerHTML = "Geolocation is not supported by this browser.";
