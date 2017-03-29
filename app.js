@@ -86,12 +86,13 @@ app.post("/PickAPlace/search", function(req, res) {
         results.rating = JSON.parse(data[0]).businesses[0];
         results.distance = JSON.parse(data[1]).businesses[0];
         results.price = JSON.parse(data[2]).businesses[0];
-
+        console.log(results.rating);
         // convert distances to mile strings
         results.rating.distance = convertToMiles(results.rating.distance);
         results.distance.distance = convertToMiles(results.rating.distance);
         results.price.distance = convertToMiles(results.price.distance);
 
+        var url_prepend = "http://maps.google.com?q=";
         // get uri encodings
         results.rating.uri = encodeURIComponent(results.rating.name);
         results.distance.uri = encodeURIComponent(results.distance.name);
