@@ -46,7 +46,7 @@ app.post("/PickAPlace/search", function(req, res) {
         term: 'restaurant',
         latitude: latitude,
         longitude: longitude,
-        radius: 16000,
+        radius: 4000,
         limit: 1,
         open_now: true,
         sort_by: 'rating'
@@ -56,7 +56,7 @@ app.post("/PickAPlace/search", function(req, res) {
         term: 'restaurant',
         latitude: latitude,
         longitude: longitude,
-        radius: 16000,
+        radius: 4000,
         limit: 1,
         open_now: true,
         sort_by: 'distance'
@@ -66,7 +66,7 @@ app.post("/PickAPlace/search", function(req, res) {
         term: 'restaurant',
         latitude: latitude,
         longitude: longitude,
-        radius: 16000,
+        radius: 4000,
         open_now: true,
         limit: 1,
         sort_by: 'best_match',
