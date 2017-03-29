@@ -93,9 +93,9 @@ app.post("/PickAPlace/search", function(req, res) {
 
         var url_prepend = "http://maps.google.com?q=";
         // get uri encodings
-        results.rating.uri = url_prepend + results.rating.coordinates.longitude + "," + results.rating.coordinates.latitude;
-        results.distance.uri = (url_prepend + results.distance.coordinates.longitude + "," + results.distance.coordinates.latitude);
-        results.price.uri = (url_prepend + results.price.coordinates.longitude + "," + results.price.coordinates.latitude);
+        results.rating.uri = url_prepend + results.rating.coordinates.latitude + "," + results.rating.coordinates.longitude;
+        results.distance.uri = (url_prepend + results.distance.coordinates.latitude + "," + results.distance.coordinates.longitude);
+        results.price.uri = (url_prepend + results.price.coordinates.latitude + "," + results.price.coordinates.longitude);
 
         console.log(results);
         res.send({
