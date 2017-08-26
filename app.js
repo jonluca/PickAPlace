@@ -26,17 +26,17 @@ app.use(bodyParser.urlencoded({
 
 
 app.set("view engine", "ejs");
-app.use('/PickAPlace/', express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 
-app.get("/PickAPlace/", function(req, res) {
+app.get("/", function(req, res) {
     res.render("landing.ejs");
 });
 
 
 var results = {};
 
-app.post("/PickAPlace/search", function(req, res) {
+app.post("/search", function(req, res) {
     // get data from form and use it to search
     var latitude = req.body.latitude;
     var longitude = req.body.longitude;
@@ -106,7 +106,7 @@ app.post("/PickAPlace/search", function(req, res) {
     });
 });
 
-app.get("/PickAPlace/results", function(req, res) {
+app.get("/results", function(req, res) {
     // res.render("results.ejs", {results: results});
     res.render("results.ejs", {
         rating: results.rating,
