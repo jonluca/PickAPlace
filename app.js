@@ -2,22 +2,22 @@ var express = require('express');
 var Yelp = require('yelp-api-v3');
 var bodyParser = require("body-parser");
 var path = require('path');
-
+var helmet = require('helmet');
+var config = require('./config');
 
 var yelp = new Yelp({
-    app_id: "txMAKnMIAeAOHElQpTEyuA",
-    app_secret: "4yJqQck1j6FrkAYNjE5TAcv3LRxDGrOX9Bqmv8Zrh0LClppgUFWHEhdK6IymsHdp"
+    app_id: config.app_id,
+    app_secret: config.app_secret
 });
 
 
 var app = express();
+app.use(helmet());
 
 function convertToMiles(meters) {
     var m = parseInt(meters);
     return Math.round(m * .0621371) / 100 + " miles";
 }
-
-
 
 app.use(bodyParser.urlencoded({
     extended: true
