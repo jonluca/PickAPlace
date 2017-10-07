@@ -111,3 +111,6 @@ typings/
 .env
 
 
+.idea/PickAPlace.iml
+.idea/inspectionProfiles/
+.idea/modules.xml
