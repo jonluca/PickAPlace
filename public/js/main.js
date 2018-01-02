@@ -7,7 +7,7 @@ $(document).ready(function() {
     function sendLoc(position) {
         $.ajax({
             method: 'POST',
-            url: "/PickAPlace/search",
+            url: "search",
             type: 'json',
             data: {
                 latitude: position.coords.latitude,
