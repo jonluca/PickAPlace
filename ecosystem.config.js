@@ -8,6 +8,7 @@ module.exports = {
         {
             name: 'PickAPlace',
             script: 'app.js',
+            log_date_format: 'YYYY-MM-DDTHH:mm:ss.SSS',
             env: {
                 NODE_ENV: 'production'
             }
