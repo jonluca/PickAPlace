@@ -12,7 +12,7 @@ var yelp = new Yelp({
 
 
 var app = express();
-app.use(helmet());
+app.use(helmet({xssFilter: false}));
 
 function convertToMiles(meters) {
     var m = parseInt(meters);
