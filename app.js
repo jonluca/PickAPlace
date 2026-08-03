@@ -1,5 +1,5 @@
 var express = require('express');
-var Yelp = require('yelp-api-v3');
+var Yelp = require('./yelp-client');
 var bodyParser = require("body-parser");
 var path = require('path');
 var helmet = require('helmet');
@@ -12,7 +12,7 @@ var yelp = new Yelp({
 
 
 var app = express();
-app.use(helmet({xssFilter: false, contentSecurityPolicy: false}));
+app.use(helmet({contentSecurityPolicy: false}));
 
 function convertToMiles(meters) {
     var m = parseInt(meters);

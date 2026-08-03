@@ -4,7 +4,8 @@
   "description": "Narrows down search results for yelp",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "check": "node --check app.js && node --check yelp-client.js && node --check ecosystem.config.js"
   },
   "repository": {
     "type": "git",
@@ -17,11 +18,13 @@
   },
   "homepage": "https://github.com/jonluca/PickAPlace#readme",
   "dependencies": {
-    "body-parser": "*",
-    "ejs": "^3.1.6",
-    "express": "^4.17.1",
-    "helmet": "^4.4.1",
-    "path": "^0.12.7",
-    "yelp-api-v3": "^1.5.0"
-  }
+    "body-parser": "^2.3.0",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "helmet": "^8.3.0"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "npm@12.0.2"
 }
